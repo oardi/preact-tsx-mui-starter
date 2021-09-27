@@ -73,7 +73,7 @@ module.exports = (env, argv) => {
 			new CleanWebpackPlugin(),
 			new HtmlWebpackPlugin({
 				template: "./index.html",
-				title: 'Preact TSX',
+				title: 'Preact TSX MUI Starter',
 				filename: "index.html",
 				chunksSortMode: "manual",
 				chunks: ['vendors', 'app'],
@@ -86,8 +86,8 @@ module.exports = (env, argv) => {
 		],
 
 		optimization: {
-			minimize: true,
-			minimizer: [new TerserPlugin()],
+			minimize: argv.mode === 'production' ? true : false,
+			minimizer: argv.mode === 'production' ? [new TerserPlugin()] : undefined,
 			splitChunks: {
 				cacheGroups: {
 					commons: { test: /[\\/]node_modules[\\/]/, name: 'vendors', chunks: 'all' }

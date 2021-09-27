@@ -5,7 +5,7 @@ import './style.scss';
 export const App = () => {
 	return (
 		<div class="p-2">
-			<h1>Preact TSX</h1>
+			<h1>preact tsx mui material starter</h1>
 			<ButtonCounter name="Some Title" />
 		</div>
 	);
